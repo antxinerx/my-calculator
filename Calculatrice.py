@@ -1,25 +1,28 @@
 def calculatrice():
     print("Calculatrice")
     print("Opérations disponibles : +, -, *, /")
-    
-    num1 = float(input("Entrez le premier nombre : "))
-    operateur = input("Entrez un opérateur : ")
-    num2 = float(input("Entrez le deuxième nombre : "))
-    
-    # Ajout de l'historique pour complexifier le code
-    
-    if operateur == '+':
-        print(f"Résultat : {num1 + num2}")
-    elif operateur == '-':
-        print(f"Résultat : {num1 - num2}")
-    elif operateur == '*':
-        print(f"Résultat : {num1 * num2}")
-    elif operateur == '/':
-        if num2 != 0:
-            print(f"Résultat : {num1 / num2}")
+
+    try:
+        num1 = float(input("Entrez le premier nombre : "))
+        operateur = input("Entrez un opérateur : ")
+        num2 = float(input("Entrez le deuxième nombre : "))
+
+        if operateur == '+':
+            print(f"Résultat : {num1 + num2}")
+        elif operateur == '-':
+            print(f"Résultat : {num1 - num2}")
+        elif operateur == '*':
+            print(f"Résultat : {num1 * num2}")
+        elif operateur == '/':
+            try:
+                print(f"Résultat : {num1 / num2}")
+            except ZeroDivisionError:
+                print("Erreur : Division par zéro !")
         else:
-            print("Erreur : Division par zéro !")
-    else:
-        print("Opérateur invalide.")
+            print("Opérateur invalide.")
+    except ValueError:
+        print("Erreur : Veuillez entrer un nombre valide.")
+    except Exception as e:
+        print(f"Une erreur inattendue s'est produite : {e}")
 
 calculatrice()
