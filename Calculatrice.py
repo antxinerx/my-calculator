@@ -55,7 +55,7 @@ def calculatrice():
         print(f"Une erreur inattendue s'est produite : {e}")
         input("Appuyez sur Entrée pour continuer...") 
 
-    os.system('cls' if os.name == 'nt' else 'clear') # Efface le terminal après le calcul 
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def afficher_menu():
     os.system('cls' if os.name == 'nt' else 'clear') 
@@ -68,8 +68,7 @@ if __name__ == "__main__":
     while True:
         afficher_menu()
         choix = input("Entrez votre choix (1-3) : ")
-        os.system('cls' if os.name == 'nt' else 'clear') # Le code pour effacer le terminal est déplacé ici
-
+        os.system('cls' if os.name == 'nt' else 'clear')
         if choix == '1':
             calculatrice()
         elif choix == '2':
