@@ -18,6 +18,14 @@ def lire_historique():
     except FileNotFoundError:
         return ["Aucun calcul effectué pour l'instant."]
 
+def supprimer_historique():
+    try:
+        os.remove(fichier_historique)
+        print("L'historique a été supprimé avec succès.")
+    except FileNotFoundError:
+        print("Aucun historique trouvé.")
+    input("Appuyez sur Entrée pour continuer...") 
+
 def calculatrice():
     print("Calculatrice")
     print("Opérations disponibles : +, -, *, /")
@@ -62,12 +70,13 @@ def afficher_menu():
     print("\n--- Menu ---")
     print("1. Effectuer un calcul")
     print("2. Voir l'historique")
-    print("3. Quitter")
+    print("3. Supprimer l'historique")
+    print("4. Quitter")
 
 if __name__ == "__main__":
     while True:
         afficher_menu()
-        choix = input("Entrez votre choix (1-3) : ")
+        choix = input("Entrez votre choix (1-4) : ")
         os.system('cls' if os.name == 'nt' else 'clear')
         if choix == '1':
             calculatrice()
@@ -78,7 +87,8 @@ if __name__ == "__main__":
                 print(ligne, end="")
             input("Appuyez sur Entrée pour continuer...") 
         elif choix == '3':
+            supprimer_historique()
+        elif choix == '4':
             break
         else:
-            print("Choix invalide. Veuillez entrer un nombre entre 1 et 3.")
-
+            print("Choix invalide. Veuillez entrer un nombre entre 1 et 4.")
